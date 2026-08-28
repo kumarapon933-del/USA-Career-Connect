@@ -11,47 +11,59 @@
         /* হেডার লেআউট */
         header { background: #002855; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         
-        /* লোগো সাইজ ও ডিসপ্লে স্টাইল */
         .logo-box { display: inline-flex; align-items: center; text-decoration: none; }
         .logo-box svg { width: 220px; height: auto; display: block; }
         
-        nav a { color: white; text-decoration: none; margin-left: 15px; font-size: 14px; }
+        nav { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-size: 14px; }
         
-        /* হিরো সেকশন ও লাইভ চ্যাট বাটন লেআউট */
+        /* হিরো সেকশন লেআউট */
         .hero { 
             background: #003366; 
             color: white; 
             text-align: center; 
-            padding: 50px 20px; 
+            padding: 60px 20px; 
             position: relative;
         }
         .hero h2 { font-size: 32px; margin-bottom: 10px; }
-        .hero p { font-size: 16px; margin-bottom: 20px; }
+        .hero p { font-size: 16px; margin-bottom: 25px; }
+        
+        /* সার্চ ফর্ম ও বাটন কন্টেইনার */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
         
         .search-form { 
             display: flex; 
-            justify-content: center; 
-            gap: 10px; 
-            flex-wrap: wrap; 
-            align-items: center;
+            gap: 5px; 
+            width: 100%;
+            max-width: 500px;
         }
-        .search-form input { padding: 12px; width: 60%; max-width: 400px; border: none; border-radius: 4px; outline: none; font-size: 15px; }
-        .search-form button { padding: 12px 20px; background: #ff9900; color: white; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; }
+        .search-form input { padding: 12px; width: 70%; border: none; border-radius: 4px 0 0 4px; outline: none; font-size: 15px; }
+        .search-form button { padding: 12px 18px; background: #ff9900; color: white; font-weight: bold; border: none; border-radius: 0 4px 4px 0; cursor: pointer; font-size: 15px; white-space: nowrap; }
         .search-form button:hover { background: #e68a00; }
         
-        /* নতুন যুক্ত করা Live Chat বাটনের CSS */
+        /* Live Chat Button Style (স্পষ্টভাবে দৃশ্যমান) */
         .live-chat-btn {
-            display: inline-flex;
+            display: inline-flex !important;
             align-items: center;
             justify-content: center;
-            padding: 12px 20px;
+            padding: 12px 22px;
             background-color: #25D366;
-            color: white;
+            color: #ffffff !important;
             font-size: 15px;
             font-weight: bold;
-            text-decoration: none;
+            text-decoration: none !important;
             border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            white-space: nowrap;
             transition: all 0.3s ease;
         }
         .live-chat-btn:hover {
@@ -63,4 +75,207 @@
         .section-title { text-align: center; margin-bottom: 25px; color: #002855; }
         
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 40px; }
-        .cat-card { background: white; padding: 20px 15px; text-align: center; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.
+        .cat-card { background: white; padding: 20px 15px; text-align: center; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-weight: bold; color: #003366; text-decoration: none; display: block; transition: 0.3s; }
+        .cat-card:hover { background: #eef4fc; transform: translateY(-3px); }
+        
+        .job-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .job-card h3 { color: #003366; margin-bottom: 8px; }
+        .job-meta { display: flex; gap: 15px; font-size: 14px; color: #666; margin-bottom: 15px; }
+        .requirements-list { margin: 15px 0; padding-left: 20px; font-size: 14px; }
+        
+        .btn-apply { display: inline-block; width: 100%; text-align: center; background: #28a745; color: white; text-decoration: none; padding: 14px; font-size: 18px; font-weight: bold; border-radius: 5px; margin-top: 10px; }
+        .btn-apply:hover { background: #218838; }
+        
+        .content-box { background: white; padding: 25px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .content-box h3 { color: #002855; margin-bottom: 12px; }
+        .content-box ul { margin-left: 20px; margin-top: 8px; }
+        
+        footer { background: #111; color: #bbb; padding: 30px 20px; text-align: center; font-size: 13px; }
+        footer a { color: #fff; text-decoration: none; margin: 0 5px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-box">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                 x="0px" y="0px" viewBox="0 0 550 250" xml:space="preserve">
+                <style type="text/css">
+                    .logo-white{fill:#FFFFFF;} 
+                    .logo-red{fill:#C21D30;}  
+                    .logo-dark{fill:#FFFFFF;}
+                    .logo-text{font-family:'Arial-BoldMT', 'Arial', sans-serif; font-weight:bold; fill:#FFFFFF;}
+                </style>
+                <g id="Briefcase_Icon">
+                    <path class="logo-white" d="M211.7,70.5h-31.4V58.7c0-6.5-5.3-11.8-11.8-11.8H96.1c-6.5,0-11.8,5.3-11.8,11.8v11.8H53
+                        c-12.9,0-23.5,10.6-23.5,23.5v117.6c0,12.9,10.6,23.5,23.5,23.5h158.7c12.9,0,23.5-10.6,23.5-23.5V94
+                        C235.2,81.1,224.6,70.5,211.7,70.5z M107.8,70.5V58.7c0-0.1,0.1-0.1,0.1-0.1h56.2c0.1,0,0.1,0.1,0.1,0.1v11.8H107.8z"/>
+                    <g id="Flag">
+                        <defs>
+                            <path id="SVGID_1_" d="M211.7,70.5H53c-12.9,0-23.5,10.6-23.5,23.5v117.6c0,12.9,10.6,23.5,23.5,23.5h158.7
+                                c12.9,0,23.5-10.6,23.5-23.5V94C235.2,81.1,224.6,70.5,211.7,70.5z"/>
+                        </defs>
+                        <clipPath id="SVGID_2_">
+                            <use xlink:href="#SVGID_1_" style="overflow:visible;"/>
+                        </clipPath>
+                        <g clip-path="url(#SVGID_2_)">
+                            <rect x="29.7" y="70.5" class="logo-red" width="205.6" height="15.8"/>
+                            <rect x="29.7" y="102" class="logo-red" width="205.6" height="15.8"/>
+                            <rect x="29.7" y="133.6" class="logo-red" width="205.6" height="15.8"/>
+                            <rect x="29.7" y="165.1" class="logo-red" width="205.6" height="15.8"/>
+                            <rect x="29.7" y="196.7" class="logo-red" width="205.6" height="15.8"/>
+                            <polygon class="logo-dark" points="53,95.6 54.4,99.9 59,99.9 55.2,102.6 56.6,106.9 53,104.2 49.3,106.9 50.8,102.6 47,99.9 51.5,99.9"/>
+                            <polygon class="logo-dark" points="76.6,95.6 78,99.9 82.6,99.9 78.8,102.6 80.2,106.9 76.6,104.2 73,106.9 74.4,102.6 70.6,99.9 75.1,99.9"/>
+                            <polygon class="logo-dark" points="53,119.2 54.4,123.5 59,123.5 55.2,126.1 56.6,130.4 53,127.8 49.3,130.4 50.8,126.1 47,123.5 51.5,123.5"/>
+                            <polygon class="logo-dark" points="76.6,119.2 78,123.5 82.6,123.5 78.8,126.1 80.2,130.4 76.6,127.8 73,130.4 74.4,126.1 70.6,123.5 75.1,123.5"/>
+                            <polygon class="logo-dark" points="64.8,107.4 66.2,111.7 70.8,111.7 67,114.3 68.4,118.6 64.8,116 61.2,118.6 62.6,114.3 58.8,111.7 63.3,111.7"/>
+                        </g>
+                    </g>
+                    <path class="logo-dark" d="M211.2,217.4l-11.5-3.7l3.7-11.5l3.7,11.5L211.2,217.4z M197.6,206.9l21.2,6.9L212,235L197.6,206.9z"/>
+                </g>
+                <g id="Text">
+                    <text transform="matrix(1 0 0 1 260 115.6)" class="logo-text" style="font-size:60px; letter-spacing:1px;">USA</text>
+                    <text transform="matrix(1 0 0 1 260 162.6)" class="logo-text" style="font-size:40px; text-transform:uppercase;">Career</text>
+                    <text transform="matrix(1 0 0 1 260 205.6)" class="logo-text" style="font-size:40px; text-transform:uppercase;">Connect</text>
+                </g>
+            </svg>
+        </a>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#jobs">Find Jobs</a>
+            <a href="#categories">Categories</a>
+            <a href="#requirements">Requirements</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Find Your Next Job Opportunity in the USA</h2>
+        <p>Explore job opportunities, check requirements, and discover your next career move.</p>
+        
+        <!-- সার্চ বার ও লাইভ চ্যাট বাটনের নতুন স্ট্রাকচার -->
+        <div class="search-container">
+            <form class="search-form" onsubmit="redirectToLanding(event)">
+                <input type="text" id="searchInput" placeholder="Search job title or location...">
+                <button type="submit">SEARCH JOBS</button>
+            </form>
+            <a href="https://me-l.co/br0w59v5" target="_blank" class="live-chat-btn">💬 Live Chat</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="categories">
+            <h2 class="section-title">💼 Popular Job Categories</h2>
+            <div class="categories-grid">
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">🚚 Truck Driver</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">📦 Warehouse</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">🏗️ Construction</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">🏨 Hospitality</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">💻 Remote Jobs</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">🏥 Healthcare</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">🏭 Manufacturing</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">🛒 Retail</a>
+                <a href="https://me-l.co/br0w59v5" target="_blank" class="cat-card">🔧 Skilled Trades</a>
+            </div>
+        </section>
+
+        <section id="jobs">
+            <h2 class="section-title">⭐ Latest Job Opportunities</h2>
+            <div class="job-card">
+                <h3>🚚 Truck Driver</h3>
+                <div class="job-meta">
+                    <span>📍 Texas, USA</span>
+                    <span>💼 Full Time</span>
+                    <span>📋 Experience Required</span>
+                </div>
+                <strong>Job Requirements:</strong>
+                <ul class="requirements-list">
+                    <li>✓ Valid commercial driver's license (CDL)</li>
+                    <li>✓ Clean driving record</li>
+                    <li>✓ Relevant experience</li>
+                </ul>
+                <a href="https://me-l.co/br0w59v5" class="btn-apply" target="_blank">🚀 APPLY NOW</a>
+            </div>
+
+            <div class="job-card">
+                <h3>📦 Warehouse Associate</h3>
+                <div class="job-meta">
+                    <span>📍 California, USA</span>
+                    <span>💼 Full Time / Part Time</span>
+                    <span>📋 Entry Level</span>
+                </div>
+                <strong>Job Requirements:</strong>
+                <ul class="requirements-list">
+                    <li>✓ Basic packing and inventory management</li>
+                    <li>✓ Physical capacity for lifting materials</li>
+                    <li>✓ High school diploma or equivalent</li>
+                </ul>
+                <a href="https://me-l.co/br0w59v5" class="btn-apply" target="_blank">🚀 APPLY NOW</a>
+            </div>
+        </section>
+
+        <section id="requirements" class="content-box">
+            <h3>📋 COMMON JOB REQUIREMENTS</h3>
+            <p>Requirements vary depending on the employer, position, and location. Common requirements may include:</p>
+            <ul>
+                <li>Valid identification</li>
+                <li>Relevant education or training</li>
+                <li>Previous work experience where required</li>
+                <li>Job-specific skills</li>
+                <li>Required licenses or certifications</li>
+                <li>English communication skills where applicable</li>
+                <li>Legal authorization to work in the United States, where applicable</li>
+            </ul>
+        </section>
+
+        <section class="content-box">
+            <h3>🚀 HOW TO APPLY</h3>
+            <p><strong>Step 1 — Find a Job:</strong> Browse our job categories or search for a specific position.</p>
+            <p><strong>Step 2 — Review the Details:</strong> Read the job description, requirements, and location carefully.</p>
+            <p><strong>Step 3 — Apply:</strong> Click the Apply Now button to continue to the application page provided.</p>
+            <p><strong>Step 4 — Verify Before Submitting:</strong> Make sure you understand who is receiving your application.</p>
+        </section>
+
+        <section id="about" class="content-box">
+            <h3>📖 ABOUT US</h3>
+            <p><strong>Who We Are:</strong> USA Career Connect is an informational job platform designed to make the job-search process simpler and more organized.</p>
+            <br>
+            <p><strong>Our Mission:</strong> To make job information easier to discover, understand, and access. We believe job seekers should be able to quickly understand what a position involves.</p>
+        </section>
+
+        <section id="contact" class="content-box">
+            <h3>📍 CONTACT US</h3>
+            <p>📧 Email: usajobs2766@gmail.com</p>
+            <p>📍 Address: Lakeitsha Mayanja, 13 Huguenot St, New Rochelle, NY 10801, United States</p>
+            <p>🕐 Business Hours: Monday – Friday | 9:00 AM – 5:00 PM ET</p>
+        </section>
+
+        <section class="content-box" style="border-left: 4px solid #dc3545;">
+            <h3>🛡️ SAFETY NOTICE & DISCLAIMER</h3>
+            <p><strong>Disclaimer:</strong> USA Career Connect is an independent informational website. We are not a U.S. government agency, employer, or recruitment agency. We do not guarantee employment or visas.</p>
+            <br>
+            <p><strong>Safety Notice:</strong> Be careful when applying online. A legitimate employer will never require you to pay money for a job or share passwords.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 USA CAREER CONNECT. All Rights Reserved.</p>
+        <p>
+            <a href="#">Home</a> | 
+            <a href="#jobs">Find Jobs</a> | 
+            <a href="#categories">Categories</a> | 
+            <a href="#about">About Us</a> | 
+            <a href="#contact">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function redirectToLanding(event) {
+            event.preventDefault();
+            window.open("https://me-l.co/br0w59v5", "_blank");
+        }
+    </script>
+</body>
+</html>
