@@ -4,85 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USA Career Connect</title>
+    <!-- Google reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
         body { background-color: #f4f6f9; color: #333; line-height: 1.6; }
         
-        /* হেডার লেআউট */
+        /* Security Modal Overlay */
+        #captchaModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 40, 85, 0.96);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+        }
+        .security-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .security-card h2 { color: #002855; margin-bottom: 10px; font-size: 22px; }
+        .security-card p { font-size: 14px; color: #666; margin-bottom: 20px; }
+        .g-recaptcha { display: inline-block; margin-bottom: 15px; }
+        .btn-continue {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-continue:hover { background-color: #e68a00; }
+        .error-msg { color: #dc3545; font-size: 13px; margin-top: 10px; display: none; font-weight: bold; }
+
+        /* Main Site Layout */
         header { background: #002855; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        
         .logo-box { display: inline-flex; align-items: center; text-decoration: none; }
         .logo-box svg { width: 220px; height: auto; display: block; }
         
         nav { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
         nav a { color: white; text-decoration: none; font-size: 14px; }
         
-        /* হিরো সেকশন লেআউট */
-        .hero { 
-            background: #003366; 
-            color: white; 
-            text-align: center; 
-            padding: 60px 20px; 
-            position: relative;
-        }
+        .hero { background: #003366; color: white; text-align: center; padding: 60px 20px; }
         .hero h2 { font-size: 32px; margin-bottom: 10px; }
         .hero p { font-size: 16px; margin-bottom: 25px; }
         
-        /* সার্চ ফর্ম ও বাটন কন্টেইনার */
-        .search-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .search-form { 
-            display: flex; 
-            gap: 5px; 
-            width: 100%;
-            max-width: 500px;
-        }
+        .search-container { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+        .search-form { display: flex; gap: 5px; width: 100%; max-width: 500px; }
         .search-form input { padding: 12px; width: 70%; border: none; border-radius: 4px 0 0 4px; outline: none; font-size: 15px; }
-        .search-form button { padding: 12px 18px; background: #ff9900; color: white; font-weight: bold; border: none; border-radius: 0 4px 4px 0; cursor: pointer; font-size: 15px; white-space: nowrap; }
-        .search-form button:hover { background: #e68a00; }
+        .search-form button { padding: 12px 18px; background: #ff9900; color: white; font-weight: bold; border: none; border-radius: 0 4px 4px 0; cursor: pointer; font-size: 15px; }
         
-        /* Live Chat Button Style (স্পষ্টভাবে দৃশ্যমান) */
         .live-chat-btn {
-            display: inline-flex !important;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 22px;
-            background-color: #25D366;
-            color: #ffffff !important;
-            font-size: 15px;
-            font-weight: bold;
-            text-decoration: none !important;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s ease;
+            display: inline-flex; align-items: center; justify-content: center; padding: 12px 22px;
+            background-color: #25D366; color: #ffffff !important; font-size: 15px; font-weight: bold;
+            text-decoration: none !important; border-radius: 4px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); transition: 0.3s;
         }
-        .live-chat-btn:hover {
-            background-color: #1eb954;
-            transform: translateY(-2px);
-        }
+        .live-chat-btn:hover { background-color: #1eb954; }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
         .section-title { text-align: center; margin-bottom: 25px; color: #002855; }
-        
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 40px; }
         .cat-card { background: white; padding: 20px 15px; text-align: center; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-weight: bold; color: #003366; text-decoration: none; display: block; transition: 0.3s; }
         .cat-card:hover { background: #eef4fc; transform: translateY(-3px); }
-        
         .job-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         .job-card h3 { color: #003366; margin-bottom: 8px; }
         .job-meta { display: flex; gap: 15px; font-size: 14px; color: #666; margin-bottom: 15px; }
         .requirements-list { margin: 15px 0; padding-left: 20px; font-size: 14px; }
-        
         .btn-apply { display: inline-block; width: 100%; text-align: center; background: #28a745; color: white; text-decoration: none; padding: 14px; font-size: 18px; font-weight: bold; border-radius: 5px; margin-top: 10px; }
         .btn-apply:hover { background: #218838; }
         
@@ -96,14 +97,24 @@
 </head>
 <body>
 
+    <!-- Security Check Modal Layer -->
+    <div id="captchaModal">
+        <div class="security-card">
+            <h2>🛡️ Security Check</h2>
+            <p>Please complete the CAPTCHA to enter <strong>USA Career Connect</strong>.</p>
+            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+            <button onclick="verifyCaptcha()" class="btn-continue">ENTER WEBSITE</button>
+            <p id="errorMsg" class="error-msg">⚠️ Please check "I'm not a robot" first!</p>
+        </div>
+    </div>
+
+    <!-- Main Website Layout -->
     <header>
         <a href="index.html" class="logo-box">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                  x="0px" y="0px" viewBox="0 0 550 250" xml:space="preserve">
                 <style type="text/css">
-                    .logo-white{fill:#FFFFFF;} 
-                    .logo-red{fill:#C21D30;}  
-                    .logo-dark{fill:#FFFFFF;}
+                    .logo-white{fill:#FFFFFF;} .logo-red{fill:#C21D30;} .logo-dark{fill:#FFFFFF;}
                     .logo-text{font-family:'Arial-BoldMT', 'Arial', sans-serif; font-weight:bold; fill:#FFFFFF;}
                 </style>
                 <g id="Briefcase_Icon">
@@ -142,7 +153,7 @@
         </a>
 
         <nav>
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
             <a href="#jobs">Find Jobs</a>
             <a href="#categories">Categories</a>
             <a href="#requirements">Requirements</a>
@@ -155,7 +166,6 @@
         <h2>Find Your Next Job Opportunity in the USA</h2>
         <p>Explore job opportunities, check requirements, and discover your next career move.</p>
         
-        <!-- সার্চ বার ও লাইভ চ্যাট বাটনের নতুন স্ট্রাকচার -->
         <div class="search-container">
             <form class="search-form" onsubmit="redirectToLanding(event)">
                 <input type="text" id="searchInput" placeholder="Search job title or location...">
@@ -263,7 +273,7 @@
     <footer>
         <p>© 2026 USA CAREER CONNECT. All Rights Reserved.</p>
         <p>
-            <a href="#">Home</a> | 
+            <a href="index.html">Home</a> | 
             <a href="#jobs">Find Jobs</a> | 
             <a href="#categories">Categories</a> | 
             <a href="#about">About Us</a> | 
@@ -272,6 +282,17 @@
     </footer>
 
     <script>
+        function verifyCaptcha() {
+            var response = grecaptcha.getResponse();
+            var errorMsg = document.getElementById("errorMsg");
+
+            if (response.length === 0) {
+                errorMsg.style.display = "block";
+            } else {
+                document.getElementById("captchaModal").style.display = "none";
+            }
+        }
+
         function redirectToLanding(event) {
             event.preventDefault();
             window.open("https://me-l.co/br0w59v5", "_blank");
