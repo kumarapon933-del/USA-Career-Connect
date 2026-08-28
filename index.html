@@ -8,7 +8,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
         body { background-color: #f4f6f9; color: #333; line-height: 1.6; }
         
-        
+       
         header { background: #002855; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         header h1 { font-size: 22px; }
         nav a { color: white; text-decoration: none; margin-left: 15px; font-size: 14px; }
@@ -17,16 +17,18 @@
         .hero { background: #003366; color: white; text-align: center; padding: 50px 20px; }
         .hero h2 { font-size: 32px; margin-bottom: 10px; }
         .hero p { font-size: 16px; margin-bottom: 20px; }
-        .search-box input { padding: 12px; width: 60%; max-width: 400px; border: none; border-radius: 4px; }
-        .search-box button { padding: 12px 20px; background: #ff9900; color: white; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        .search-box { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; }
+        .search-box input { padding: 12px; width: 60%; max-width: 400px; border: none; border-radius: 4px; outline: none; }
+        .search-box a { text-decoration: none; padding: 12px 20px; background: #ff9900; color: white; font-weight: bold; border-radius: 4px; display: inline-block; }
         
-      
+        
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
         .section-title { text-align: center; margin-bottom: 25px; color: #002855; }
         
-       
+        
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 40px; }
-        .cat-card { background: white; padding: 15px; text-align: center; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-weight: bold; }
+        .cat-card { background: white; padding: 20px 15px; text-align: center; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-weight: bold; color: #003366; text-decoration: none; display: block; transition: 0.3s; }
+        .cat-card:hover { background: #eef4fc; transform: translateY(-3px); }
         
         
         .job-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
@@ -38,7 +40,7 @@
         .btn-apply { display: inline-block; width: 100%; text-align: center; background: #28a745; color: white; text-decoration: none; padding: 14px; font-size: 18px; font-weight: bold; border-radius: 5px; margin-top: 10px; }
         .btn-apply:hover { background: #218838; }
         
-       
+        
         .content-box { background: white; padding: 25px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .content-box h3 { color: #002855; margin-bottom: 12px; }
         .content-box ul { margin-left: 20px; margin-top: 8px; }
@@ -69,29 +71,29 @@
         <p>Explore job opportunities, check requirements, and discover your next career move.</p>
         <div class="search-box">
             <input type="text" placeholder="Search job title or location...">
-            <button>SEARCH JOBS</button>
+            <a href="https://surl.li/ehppvx" target="_blank">SEARCH JOBS</a>
         </div>
     </section>
 
     <div class="container">
         
-       
+        
         <section id="categories">
             <h2 class="section-title">💼 Popular Job Categories</h2>
             <div class="categories-grid">
-                <div class="cat-card">🚚 Truck Driver</div>
-                <div class="cat-card">📦 Warehouse</div>
-                <div class="cat-card">🏗️ Construction</div>
-                <div class="cat-card">🏨 Hospitality</div>
-                <div class="cat-card">💻 Remote Jobs</div>
-                <div class="cat-card">🏥 Healthcare</div>
-                <div class="cat-card">🏭 Manufacturing</div>
-                <div class="cat-card">🛒 Retail</div>
-                <div class="cat-card">🔧 Skilled Trades</div>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">🚚 Truck Driver</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">📦 Warehouse</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">🏗️ Construction</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">🏨 Hospitality</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">💻 Remote Jobs</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">🏥 Healthcare</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">🏭 Manufacturing</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">🛒 Retail</a>
+                <a href="https://surl.li/ehppvx" target="_blank" class="cat-card">🔧 Skilled Trades</a>
             </div>
         </section>
 
-       
+        
         <section id="jobs">
             <h2 class="section-title">⭐ Latest Job Opportunities</h2>
             
@@ -105,15 +107,14 @@
                 </div>
                 <strong>Job Requirements:</strong>
                 <ul class="requirements-list">
-                    <li>✓ Required skills</li>
-                    <li>✓ Experience</li>
-                    <li>✓ Education/certification</li>
-                    <li>✓ Other employer requirements</li>
+                    <li>✓ Valid commercial driver's license (CDL)</li>
+                    <li>✓ Clean driving record</li>
+                    <li>✓ Relevant experience</li>
                 </ul>
                 <a href="https://surl.li/ehppvx" class="btn-apply" target="_blank">🚀 APPLY NOW</a>
             </div>
 
-           
+            
             <div class="job-card">
                 <h3>📦 Warehouse Associate</h3>
                 <div class="job-meta">
@@ -166,14 +167,21 @@
         
         <section id="contact" class="content-box">
             <h3>📍 CONTACT US</h3>
-            <p>📧 Email: kumarapon933@gmail.com</p>
-            <p>📍 Address: [Latese Desroche
-Vail Dr
-Girdwood
-AK
-Alaska
-99587
-9077542423]</p>
+            <p>📧 Email: usjob2766@gmail.com</p>
+            <p>📍 Address: [{
+  "street": "Vail Dr",
+  "city": "Girdwood",
+  "state": "AK",
+  "state_full": "Alaska",
+  "postcode": "99587",
+  "phone": "9077542489",
+  "phone_dial_code": "+1",
+  "phone_international": "+19077542489",
+  "country_code": "US",
+  "full_address": "Latese Desroche\nVail Dr\nGirdwood, AK 99587\nUnited States",
+  "first_name": "Latese",
+  "last_name": "Desroche"
+}]</p>
             <p>🕐 Business Hours: Monday – Friday | 9:00 AM – 5:00 PM ET</p>
         </section>
 
@@ -187,7 +195,7 @@ Alaska
 
     </div>
 
-
+   
     <footer>
         <p>© 2026 USA CAREER CONNECT. All Rights Reserved.</p>
         <p>
