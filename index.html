@@ -8,51 +8,43 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
         body { background-color: #f4f6f9; color: #333; line-height: 1.6; }
         
-       
         header { background: #002855; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         header h1 { font-size: 22px; }
         nav a { color: white; text-decoration: none; margin-left: 15px; font-size: 14px; }
         
-        
         .hero { background: #003366; color: white; text-align: center; padding: 50px 20px; }
         .hero h2 { font-size: 32px; margin-bottom: 10px; }
         .hero p { font-size: 16px; margin-bottom: 20px; }
-        .search-box { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; }
-        .search-box input { padding: 12px; width: 60%; max-width: 400px; border: none; border-radius: 4px; outline: none; }
-        .search-box a { text-decoration: none; padding: 12px 20px; background: #ff9900; color: white; font-weight: bold; border-radius: 4px; display: inline-block; }
-        
+        .search-form { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; }
+        .search-form input { padding: 12px; width: 60%; max-width: 400px; border: none; border-radius: 4px; outline: none; font-size: 15px; }
+        .search-form button { padding: 12px 20px; background: #ff9900; color: white; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; }
+        .search-form button:hover { background: #e68a00; }
         
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
         .section-title { text-align: center; margin-bottom: 25px; color: #002855; }
         
-        
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 40px; }
         .cat-card { background: white; padding: 20px 15px; text-align: center; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-weight: bold; color: #003366; text-decoration: none; display: block; transition: 0.3s; }
         .cat-card:hover { background: #eef4fc; transform: translateY(-3px); }
-        
         
         .job-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         .job-card h3 { color: #003366; margin-bottom: 8px; }
         .job-meta { display: flex; gap: 15px; font-size: 14px; color: #666; margin-bottom: 15px; }
         .requirements-list { margin: 15px 0; padding-left: 20px; font-size: 14px; }
         
-       
         .btn-apply { display: inline-block; width: 100%; text-align: center; background: #28a745; color: white; text-decoration: none; padding: 14px; font-size: 18px; font-weight: bold; border-radius: 5px; margin-top: 10px; }
         .btn-apply:hover { background: #218838; }
-        
         
         .content-box { background: white; padding: 25px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .content-box h3 { color: #002855; margin-bottom: 12px; }
         .content-box ul { margin-left: 20px; margin-top: 8px; }
         
-       
         footer { background: #111; color: #bbb; padding: 30px 20px; text-align: center; font-size: 13px; }
         footer a { color: #fff; text-decoration: none; margin: 0 5px; }
     </style>
 </head>
 <body>
 
-    
     <header>
         <h1>🇺🇸 USA Career Connect</h1>
         <nav>
@@ -65,18 +57,17 @@
         </nav>
     </header>
 
-    
     <section class="hero">
         <h2>Find Your Next Job Opportunity in the USA</h2>
         <p>Explore job opportunities, check requirements, and discover your next career move.</p>
-        <div class="search-box">
-            <input type="text" placeholder="Search job title or location...">
-            <a href="https://surl.li/ehppvx" target="_blank">SEARCH JOBS</a>
-        </div>
+        
+        <form class="search-form" onsubmit="redirectToLanding(event)">
+            <input type="text" id="searchInput" placeholder="Search job title or location...">
+            <button type="submit">SEARCH JOBS</button>
+        </form>
     </section>
 
     <div class="container">
-        
         
         <section id="categories">
             <h2 class="section-title">💼 Popular Job Categories</h2>
@@ -93,10 +84,8 @@
             </div>
         </section>
 
-        
         <section id="jobs">
             <h2 class="section-title">⭐ Latest Job Opportunities</h2>
-            
             
             <div class="job-card">
                 <h3>🚚 Truck Driver</h3>
@@ -114,7 +103,6 @@
                 <a href="https://surl.li/ehppvx" class="btn-apply" target="_blank">🚀 APPLY NOW</a>
             </div>
 
-            
             <div class="job-card">
                 <h3>📦 Warehouse Associate</h3>
                 <div class="job-meta">
@@ -132,7 +120,6 @@
             </div>
         </section>
 
-       
         <section id="requirements" class="content-box">
             <h3>📋 COMMON JOB REQUIREMENTS</h3>
             <p>Requirements vary depending on the employer, position, and location. Common requirements may include:</p>
@@ -147,7 +134,6 @@
             </ul>
         </section>
 
-       
         <section class="content-box">
             <h3>🚀 HOW TO APPLY</h3>
             <p><strong>Step 1 — Find a Job:</strong> Browse our job categories or search for a specific position.</p>
@@ -156,7 +142,6 @@
             <p><strong>Step 4 — Verify Before Submitting:</strong> Make sure you understand who is receiving your application.</p>
         </section>
 
-        
         <section id="about" class="content-box">
             <h3>📖 ABOUT US</h3>
             <p><strong>Who We Are:</strong> USA Career Connect is an informational job platform designed to make the job-search process simpler and more organized.</p>
@@ -164,28 +149,13 @@
             <p><strong>Our Mission:</strong> To make job information easier to discover, understand, and access. We believe job seekers should be able to quickly understand what a position involves.</p>
         </section>
 
-        
         <section id="contact" class="content-box">
             <h3>📍 CONTACT US</h3>
-            <p>📧 Email: usjob2766@gmail.com</p>
-            <p>📍 Address: [{
-  "street": "Vail Dr",
-  "city": "Girdwood",
-  "state": "AK",
-  "state_full": "Alaska",
-  "postcode": "99587",
-  "phone": "9077542489",
-  "phone_dial_code": "+1",
-  "phone_international": "+19077542489",
-  "country_code": "US",
-  "full_address": "Latese Desroche\nVail Dr\nGirdwood, AK 99587\nUnited States",
-  "first_name": "Latese",
-  "last_name": "Desroche"
-}]</p>
+            <p>📧 Email: contact@yourdomain.com</p>
+            <p>📍 Address: [Your Business Address]</p>
             <p>🕐 Business Hours: Monday – Friday | 9:00 AM – 5:00 PM ET</p>
         </section>
 
-        
         <section class="content-box" style="border-left: 4px solid #dc3545;">
             <h3>🛡️ SAFETY NOTICE & DISCLAIMER</h3>
             <p><strong>Disclaimer:</strong> USA Career Connect is an independent informational website. We are not a U.S. government agency, employer, or recruitment agency. We do not guarantee employment or visas.</p>
@@ -195,7 +165,6 @@
 
     </div>
 
-   
     <footer>
         <p>© 2026 USA CAREER CONNECT. All Rights Reserved.</p>
         <p>
@@ -206,6 +175,13 @@
             <a href="#contact">Contact</a>
         </p>
     </footer>
+
+    <script>
+        function redirectToLanding(event) {
+            event.preventDefault();
+            window.open("https://surl.li/ehppvx", "_blank");
+        }
+    </script>
 
 </body>
 </html>
